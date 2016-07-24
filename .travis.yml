@@ -6,14 +6,14 @@
 sudo: required
 
 # See https://docs.travis-ci.com/user/multi-os/.
-os: linux
+#os: linux
 # See https://docs.travis-ci.com/user/languages/python.
-language: python
+#language: python
 # We only support Python 3.
-python:
-  - 3.3
-  - 3.4
-  - 3.5
+#python:
+#  - 3.3
+#  - 3.4
+#  - 3.5
 
 # See https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix. This
 # manually includes additional OS X tests to the matrix of Linux tests defined
@@ -32,9 +32,9 @@ matrix:
   ## - os: osx
   ##   language: generic
   ##   env: PYTHON=3.4.4
-  ## - os: osx
-  ##   language: generic
-  ##   env: PYTHON=3.5.1
+  - os: osx
+    language: generic
+    env: PYTHON=3.5.1
 
   # See https://docs.travis-ci.com/user/customizing-the-build/#Rows-that-are-Allowed-to-Fail
   allow_failures:
