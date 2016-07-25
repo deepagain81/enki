@@ -25,6 +25,9 @@ class OpenFail(base.TestCase):
     def _runTest(self, filePath, expectedTitle):
         def inDialog(dialog):
             print(9)
+            print(dialog)
+            print(expectedTitle)
+            print(dialog.windowTitle())
             self.assertEqual(dialog.windowTitle(), expectedTitle)
             print(10)
             self.keyClick('Enter')
