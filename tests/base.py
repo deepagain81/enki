@@ -289,22 +289,29 @@ class TestCase(unittest.TestCase):
                 isDialogsChild(dialog, widget.parentWidget())
 
         def timerCallback(attempt):
+            print(3)
             if self._finished:
                 return
 
             dialog = self._findDialog()
+            print(4)
 
             if dialog is not None and \
-               isDialogsChild(dialog, QApplication.instance().focusWidget()):
+              isDialogsChild(dialog, QApplication.instance().focusWidget()):
+                print(6)
                 runInDialogFunc(dialog)
+                print(7)
             else:
                 if attempt < ATTEMPTS:
+                    print(8)
                     QTimer.singleShot(20, lambda: timerCallback(attempt + 1))
                 else:
                     self.fail("Dialog not found")
 
+        print(1)
         QTimer.singleShot(20, lambda: timerCallback(1))
-        openDialogFunc()
+        print(2)
+        return openDialogFunc()
 
     def openSettings(self, runInDialogFunc):
         """Open Enki settings dialog and run ``runInDialogFunc``.

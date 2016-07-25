@@ -38,13 +38,13 @@ class RestoreOldConfigs(base.TestCase):
             enki.core.defines.CONFIG_DIR = currCfg
 
     # Mac fail
-    def xtest_2(self):
+    def test_2(self):
         # Enki shows QMessageBox if failed to move config dir
         oldCfg = enki.core.core._OLD_CONFIG_DIR
         currCfg = enki.core.defines.CONFIG_DIR
 
         enki.core.core._OLD_CONFIG_DIR = self.TEST_FILE_DIR + '/old'
-        enki.core.defines.CONFIG_DIR = '/new'
+        enki.core.defines.CONFIG_DIR = self.TEST_FILE_DIR + '/new'
         try:
             os.mkdir(enki.core.core._OLD_CONFIG_DIR)
 
